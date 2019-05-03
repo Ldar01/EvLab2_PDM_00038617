@@ -1,11 +1,13 @@
 package com.example.paletargb
 
+import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.example.paletargb.Fragments.Dinamic
 import com.example.paletargb.Fragments.Static
 import com.example.paletargb.Fragments.Static.onFragmentStatic
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_dinamic.*
 import kotlinx.android.synthetic.main.fragment_static.*
 
 class MainActivity : AppCompatActivity(), onFragmentStatic  {

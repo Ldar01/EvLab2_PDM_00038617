@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="width_button">120dp</dimen>
+    <dimen name="padding_button">20dp</dimen>
+    <dimen name="FragColor_width">200dp</dimen>
+    <dimen name="FragColor_height">300dp</dimen>
+</resources>

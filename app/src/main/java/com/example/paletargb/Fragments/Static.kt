@@ -14,24 +14,25 @@ import com.example.paletargb.R
 class Static : Fragment() {
 
     var choose_color:Int = 0
+    var listener: onFragmentStatic? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
 
-        val view = inflater.inflate(R.layout.fragment_dinamic, container, false)
+        val view = inflater.inflate(R.layout.fragment_static, container, false)
 
         return view
     }
 
     interface onFragmentStatic{
-        fun ClickNextOrPrev()
+        fun ClickNextOrPrev( button_clicked: Int)
     }
 
-/*
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is OnFragmentInteractionListener) {
+        if (context is onFragmentStatic) {
             listener = context
         } else {
             throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
@@ -41,6 +42,6 @@ class Static : Fragment() {
     override fun onDetach() {
         super.onDetach()
         listener = null
-    }*/
+    }
 
 }

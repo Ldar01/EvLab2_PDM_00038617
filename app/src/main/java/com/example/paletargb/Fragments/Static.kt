@@ -22,7 +22,13 @@ class Static : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_static, container, false)
 
+        //onButtonPressed(0)
+
         return view
+    }
+
+    fun onButtonPressed(button_clicked: Int){
+        listener?.ClickNextOrPrev(button_clicked)
     }
 
     interface onFragmentStatic{

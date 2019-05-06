@@ -12,6 +12,9 @@ import com.example.paletargb.R
 
 class Dinamic : Fragment() {
 
+
+    var listener: onFragmentDinamic? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle? ): View? {
@@ -20,10 +23,10 @@ class Dinamic : Fragment() {
 
         return view
     }
-/*
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is OnFragmentInteractionListener) {
+        if (context is onFragmentDinamic) {
             listener = context
         } else {
             throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
@@ -33,6 +36,10 @@ class Dinamic : Fragment() {
     override fun onDetach() {
         super.onDetach()
         listener = null
-    }*/
+    }
+
+    interface onFragmentDinamic{
+        fun ClickPlusOrMinus( button_clicked: Int)
+    }
 
 }

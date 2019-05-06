@@ -9,7 +9,7 @@ import com.example.paletargb.Fragments.Static.onFragmentStatic
 import kotlinx.android.synthetic.main.fragment_dinamic.*
 import kotlinx.android.synthetic.main.fragment_static.*
 
-class MainActivity : AppCompatActivity(), onFragmentStatic  {
+class MainActivity : AppCompatActivity(), onFragmentStatic, Dinamic.onFragmentDinamic {
 
     var change_color:Int = 0
 
@@ -18,7 +18,6 @@ class MainActivity : AppCompatActivity(), onFragmentStatic  {
         setContentView(R.layout.activity_main)
         //ClickNextOrPrev(R.id.button_next)
     }
-
     override fun ClickNextOrPrev(button_clicked: Int) {
 
         val fragManager = supportFragmentManager
@@ -82,5 +81,34 @@ class MainActivity : AppCompatActivity(), onFragmentStatic  {
                 }
             }
         }
+    }
+
+    override fun ClickPlusOrMinus(button_clicked: Int) {
+        var cont :Int = 0
+        when(button_clicked){
+            R.id.button_plus ->{
+                button_plus.setOnClickListener {
+                    cont += 10
+                    if(cont > 255){
+                        cont = 0
+                        panel_frame.setBackgroundColor(cont)
+                    }else{
+                        panel_frame.setBackgroundColor(cont)
+                    }
+                }
+            }
+            R.id.button_minus ->{
+                button_minus.setOnClickListener {
+                    cont -= 10
+                    if(cont > 0){
+                        panel_frame.setBackgroundColor(cont)
+                    }else{
+                        cont = 255
+                        panel_frame.setBackgroundColor(cont)
+                    }
+                }
+            }
+        }
+
     }
 }

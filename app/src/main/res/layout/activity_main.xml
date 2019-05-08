@@ -15,11 +15,9 @@
             android:name="com.example.paletargb.Fragments.Static"
         tools:layout="@layout/fragment_static" />
 
-    <fragment
+    <FrameLayout
             android:id="@+id/fragment_2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:name="com.example.paletargb.Fragments.Dinamic"
-        tools:layout="@layout/fragment_dinamic" />
+            android:layout_height="wrap_content" />
 
 </LinearLayout>

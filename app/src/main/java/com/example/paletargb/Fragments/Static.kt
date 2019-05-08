@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.fragment_static.*
 
 class Static : Fragment() {
 
-    var choose_color:Int = 0
+   // var choose_color:Int = 0
     var listener: onFragmentStatic? = null
 
     override fun onCreateView(
@@ -22,22 +22,19 @@ class Static : Fragment() {
         val view = inflater.inflate(R.layout.fragment_static, container, false)
 
         button_previous.setOnClickListener {
-            onButtonPressed(it)
+            listener?.ClickPrev(it)
         }
 
         button_next.setOnClickListener {
-            onButtonPressed(it)
+            listener?.ClickNext(it)
         }
 
         return view
     }
 
-    fun onButtonPressed(button_clicked: View){
-        listener?.ClickNextOrPrev(button_clicked)
-    }
-
     interface onFragmentStatic{
-        fun ClickNextOrPrev(button_clicked: View)
+        fun ClickNext(v: View)
+        fun ClickPrev(v: View)
     }
 
 

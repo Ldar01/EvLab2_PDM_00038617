@@ -1,5 +1,6 @@
 package com.example.paletargb
 
+import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -8,14 +9,13 @@ import com.example.paletargb.Fragments.Static.onFragmentStatic
 
 class MainActivity : AppCompatActivity(), onFragmentStatic{
 
-    var change_color:Int = 0
+    private lateinit var dinamic_fragment: Dinamic
+    private var counter = 0
+    private val colors: IntArray = intArrayOf(Color.RED, Color.BLUE, Color.GREEN)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-    }
-    override fun ClickNextOrPrev(button_clicked: View) {
-
     }
 
     /*override fun ClickPlusOrMinus(button_clicked: Int) {
@@ -46,6 +46,30 @@ class MainActivity : AppCompatActivity(), onFragmentStatic{
         }
 
     }*/
+
+    override fun ClickNext(v: View) {
+        dinamic_fragment = Dinamic.newInstance(VerifyNextOrPrev(2))
+        changeFragment(dinamic_fragment)
+    }
+
+    override fun ClickPrev(v: View) {
+        dinamic_fragment = Dinamic.newInstance(VerifyNextOrPrev(1))
+        changeFragment(dinamic_fragment)
+    }
+
+    fun VerifyNextOrPrev(button: Int) : Int{
+        return when(button){
+            1->{
+               counter--
+                if(counter<0) counter = 2
+                    colors[counter]
+            } else ->{
+                counter++
+                if(counter>2) counter = 0
+                colors[counter]
+            }
+        }
+    }
 
     fun changeFragment(frag: Dinamic) {
         var fragManager = supportFragmentManager

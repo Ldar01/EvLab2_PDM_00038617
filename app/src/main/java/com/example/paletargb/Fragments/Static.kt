@@ -1,8 +1,6 @@
 package com.example.paletargb.Fragments
 
 import android.content.Context
-import android.graphics.Color
-import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.example.paletargb.R
+import kotlinx.android.synthetic.main.fragment_static.*
 
 class Static : Fragment() {
 
@@ -22,17 +21,23 @@ class Static : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_static, container, false)
 
-        //onButtonPressed(0)
+        button_previous.setOnClickListener {
+            onButtonPressed(it)
+        }
+
+        button_next.setOnClickListener {
+            onButtonPressed(it)
+        }
 
         return view
     }
 
-    fun onButtonPressed(button_clicked: Int){
+    fun onButtonPressed(button_clicked: View){
         listener?.ClickNextOrPrev(button_clicked)
     }
 
     interface onFragmentStatic{
-        fun ClickNextOrPrev( button_clicked: Int)
+        fun ClickNextOrPrev(button_clicked: View)
     }
 
 
